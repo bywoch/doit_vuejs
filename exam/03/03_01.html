@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Vue Instance Lifecycle</title>
+</head>
+
+<body>
+    <!-- Vue.js 앱이 마운트되는 요소 -->
+    <div id="app">
+        {{ message }} <!-- 데이터 바인딩: message 값 출력 -->
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        // Vue 인스턴스 생성 및 설정
+        new Vue({
+            el: '#app', // 마운트할 요소의 선택자
+            data: {
+                message: 'Hello Vue.js!' // 데이터 속성: 화면에 출력할 메시지
+            },
+            beforeCreate: function () {
+                console.log("beforeCreate"); // Vue 인스턴스가 생성되기 전 호출
+            },
+            created: function () {
+                console.log("created"); // Vue 인스턴스가 생성된 직후 호출
+            },
+            mounted: function () {
+                console.log("mounted"); // Vue 인스턴스가 화면에 마운트된 직후 호출
+            },
+            updated: function () {
+                console.log("updated"); // Vue 인스턴스가 데이터를 업데이트한 후 호출
+            }
+        });
+    </script>
+</body>
+
+
+</html>
