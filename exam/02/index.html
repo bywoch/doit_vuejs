@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Sample</title>
+</head>
+
+<body>
+    <!-- Vue.js 앱이 마운트되는 요소 -->
+    <div id="app">
+        {{ message }} <!-- 데이터 바인딩: message 값 출력 -->
+    </div>
+
+    <!-- Vue.js 라이브러리 로드 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        // Vue 인스턴스 생성 및 설정
+        new Vue({
+            el: '#app', // 마운트할 요소의 선택자
+            data: {
+                message: 'Hello Vue.js!' // 데이터 속성: 화면에 출력할 메시지
+            }
+        });
+        
+        //. Vue.js 라이브러리를 로드하고 데이터 바인딩을 통해 message 값을 화면에 출력
+    </script>
+</body>
+
+</html>
