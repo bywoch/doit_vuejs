@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>Vue Local and Global Components</title>
+</head>
+
+<body>
+    <!-- Vue.js 앱이 마운트되는 요소 -->
+    <!--  "my-global-component"와 "my-local-component" 두 개의 컴포넌트를 선언하고 특정 요소 내에서 사용 -->
+    
+    <div id="app">
+        <h3>첫 번째 인스턴스 영역</h3>
+        <my-global-component></my-global-component> <!-- 전역 컴포넌트 사용 -->
+        <my-local-component></my-local-component> <!-- 지역 컴포넌트 사용 -->
+    </div>
+
+    <!-- Vue.js 라이브러리 로드 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        // 전역 컴포넌트 등록
+        Vue.component('my-global-component', {
+            template: '<div>전역 컴포넌트 입니다.</div>' // 컴포넌트 내용
+        });
+
+        // 지역 컴포넌트 내용
+        var cmp = {
+            template: '<div>지역 컴포넌트 입니다.</div>' // 컴포넌트 내용
+        };
+
+        // Vue 인스턴스 생성 및 설정
+        new Vue({
+            el: '#app', // 마운트할 요소의 선택자
+            components: {
+                'my-local-component': cmp // 지역 컴포넌트 등록
+            }
+        });
+    </script>
+</body>
+
+
+</html>

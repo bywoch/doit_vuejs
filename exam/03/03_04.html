@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>Vue Component Registration</title>
+</head>
+
+<body>
+    <div id="app">
+        <button>컴포넌트 등록</button>
+        <my-local-component></my-local-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        // 지역 컴포넌트 정의
+        var cmp = {
+            template: '<div>지역 컴포넌트가 등록되었습니다!</div>' // 컴포넌트 내용
+        };
+
+        // Vue 인스턴스 생성 및 설정
+        new Vue({
+            el: '#app', // 마운트할 요소의 선택자
+            components: {
+                'my-local-component': cmp // 지역 컴포넌트 등록
+            }
+        });
+
+        /* Vue.js를 사용하여 지역 컴포넌트를 등록하고 Vue 인스턴스를 생성. "my-local-component"라는 지역 컴포넌트를 등록하고, Vue 인스턴스 내에서 해당 컴포넌트를 사용할 수 있도록 설정 */
+    </script>
+
+</body>
+
+</html>
