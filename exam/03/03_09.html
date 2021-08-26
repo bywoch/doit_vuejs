@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event Emit Sample</title>
+</head>
+
+<body>
+    <!--  이벤트를 발생시키고 수신하기 -->
+    
+    <div id="app">
+        <child-component v-on:show-log="printText"></child-component> <!-- show-log 이벤트를 받아 처리하는 자식 컴포넌트 사용 -->
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        // 자식 컴포넌트 정의
+        Vue.component('child-component', {
+            template: '<button v-on:click="showLog">show</button>', // 버튼 클릭 시 showLog 메서드 호출
+            methods: {
+                showLog: function () {
+                    this.$emit('show-log'); // show-log 이벤트 발생
+                }
+            }
+        });
+
+        // Vue 인스턴스 생성 및 설정
+        new Vue({
+            el: '#app', // 마운트할 요소의 선택자
+            data: {
+                message: 'Hello Vue! passed from Parent Component' // 부모 컴포넌트 데이터 속성
+            },
+            methods: {
+                printText: function () {
+                    console.log("received an event"); // 이벤트 핸들러: 이벤트 수신 시 호출
+                }
+            }
+        });
+    </script>
+
+    <!--  v-on 디렉티브를 사용하여 자식 컴포넌트의 버튼 클릭 시 showLog 메서드가 호출되어 show-log 이벤트를 발생시키고, 부모 컴포넌트에서는 해당 이벤트를 받아서 처리 -->
+
+</body>
+
+
+</html>
