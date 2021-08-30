@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Router Sample</title>
+</head>
+
+<body>
+    <!-- 뷰 라우터 실습 -->
+    
+    <div id="app">
+        <h1>뷰 라우터 예제</h1>
+        <p>
+            <!-- 라우터 링크: 각 컴포넌트로 이동 -->
+            <router-link to="/main">Main 컴포넌트로 이동</router-link>
+            <router-link to="/login">Login 컴포넌트로 이동</router-link>
+        </p>
+        <router-view></router-view> <!-- 현재 경로에 해당하는 컴포넌트 출력 -->
+    </div>
+
+    <!-- Vue.js 라이브러리 로드 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <!-- Vue Router 라이브러리 로드 -->
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+
+    <script>
+        // Main, Login 컴포넌트 내용 정의
+        var Main = { template: '<div>main</div>' };
+        var Login = { template: '<div>login</div>' };
+
+        // 각 url에 해당하는 컴포넌트 등록
+        var routes = [
+            { path: '/main', component: Main },
+            { path: '/login', component: Login }
+        ];
+
+        // 뷰 라우터 정의
+        var router = new VueRouter({
+            routes
+        });
+
+        // 뷰 라우터를 인스턴스에 등록
+        var app = new Vue({
+            router
+        }).$mount('#app'); // 마운트할 요소의 선택자
+    </script>
+
+    <!-- 
+        Vue.js의 뷰 라우터를 사용하여 간단한 라우팅 예제
+        
+        - <router-link>를 사용하여 페이지 간 이동을 할 수 있으며,
+        - <router-view>를 사용하여 현재 경로에 해당하는 컴포넌트를 렌더링
+        - "Main"과 "Login" 컴포넌트를 정의하고 각 URL에 해당하는 컴포넌트를 등록하고,
+        - Vue Router를 인스턴스에 등록하여 사용 
+    -->
+
+</body>
+
+
+</html>
