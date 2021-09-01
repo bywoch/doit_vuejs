@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>Vue with Axios Sample</title>
+</head>
+
+<body>
+    <!-- 액시오스로 데이터 받아오기 -->
+    
+    <!--
+        Vue.js의 Axios 라이브러리를 사용하여 데이터를 가져오기
+        - 버튼 클릭 시 getData 메소드가 호출되어 Axios를 이용하여 외부 데이터를 가져오기
+    -->
+
+    <!-- Vue.js 앱이 마운트되는 요소 -->
+    <div id="app">
+        <button v-on:click="getData">프레임워크 목록 가져오기</button>
+    </div>
+
+    <!-- Vue.js 및 Axios 라이브러리 로드 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        // Vue 인스턴스 생성 및 메소드 정의
+        new Vue({
+            el: '#app', // 마운트할 요소의 선택자
+            methods: {
+                getData: function () {
+                    // Axios를 이용하여 데이터 가져오기
+                    axios.get('https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json')
+                        .then(function (response) {
+                            console.log(response); // 응답 데이터 출력
+                        });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
