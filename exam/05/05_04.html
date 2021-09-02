@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>Vue Template - Directives</title>
+</head>
+
+<body>
+
+    <!-- 많이 사용되는 디렉티브 다루기 -->
+
+    <!-- 
+         Vue.js를 사용하여 다양한 디렉티브를 다루는 예제
+          - 'v-if', 'v-for', 'v-show', 'v-bind', 'v-on' 디렉티브를 사용하여 
+          데이터에 따라 화면 요소의 표시 여부나 속성을 동적으로 조절하고, 이벤트 핸들링을 수행
+     -->
+
+    <!-- Vue.js 앱이 마운트되는 요소 -->
+    <div id="app">
+        <a v-if="flag">두잇 Vue.js</a> <!-- flag 값에 따라 요소 표시 여부 조절 -->
+        <ul>
+            <li v-for="system in systems">{{ system }}</li> <!-- systems 배열의 요소들을 순회하며 리스트 표현 -->
+        </ul>
+        <p v-show="flag">두잇 Vue.js</p> <!-- flag 값에 따라 요소 표시 여부 조절 (CSS의 display 사용) -->
+        <h5 v-bind:id="uid">뷰 입문서</h5> <!-- uid 데이터 값을 id 속성에 바인딩 -->
+        <button v-on:click="popupAlert">경고 창 버튼</button> <!-- 버튼 클릭 시 메소드 실행 -->
+    </div>
+
+    <!-- Vue.js 라이브러리 로드 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        // Vue 인스턴스 생성 및 데이터 설정, 메소드 정의
+        new Vue({
+            el: '#app', // 마운트할 요소의 선택자
+            data: {
+                flag: true, // flag 데이터
+                systems: ['android', 'ios', 'window'], // systems 데이터
+                uid: 10 // uid 데이터
+            },
+            methods: {
+                popupAlert: function () {
+                    return alert('경고 창 표시'); // 경고창 표시 메소드
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
