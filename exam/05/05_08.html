@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>Vue Template - Computed vs Methods</title>
+</head>
+
+<body>
+
+    <!-- computed 속성과 methods 속성의 차이점 -->
+
+    <!-- 
+         computed 속성과 methods 속성의 차이점을 보여주는 예제
+         - 데이터 바인딩을 통해 메시지가 출력되며, 버튼 클릭 시 reverseMsg 메소드가 호출되어 메시지를 문자열 역순으로 변경한 후 데이터를 업데이트
+         - 이 때, 메소드의 반환 값이 사용되지 않는 것을 주목
+         - methods는 필요한 계산이나 동작을 메소드 안에 정의하여 호출하는 방식으로 사용됨
+     -->
+
+    <div id="app">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMsg">문자열 역순</button> <!-- 버튼 클릭 시 reverseMsg 메소드 호출 -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+        // Vue 인스턴스 생성 및 데이터 설정, 메소드 정의
+        new Vue({
+            el: '#app', // 마운트할 요소의 선택자
+            data: {
+                message: 'Hello Vue.js!' // 초기 메시지 데이터
+            },
+            methods: {
+                reverseMsg: function () {
+                    // 메시지를 문자열 역순으로 변경하여 데이터 업데이트
+                    this.message = this.message.split('').reverse().join('');
+                    return this.message; // 변경된 메시지 반환 (사실상 사용되지 않음)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
